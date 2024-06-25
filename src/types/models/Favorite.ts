@@ -1,7 +1,7 @@
 import { Product } from './Product';
 
-export interface Favorite {
+export type Favorite = {
 	id: string;
 	productId: Product['id'];
 	position: number;
-}
+};
