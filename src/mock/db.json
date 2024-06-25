@@ -1,0 +1,88 @@
+{
+	"products": [
+		{
+			"id": "1",
+			"name": "Wireless Mouse",
+			"category": "Electronics",
+			"price": 5000,
+			"image": "https://images.unsplash.com/photo-1660491083562-d91a64d6ea9c"
+		},
+		{
+			"id": "2",
+			"name": "Bluetooth Headphones",
+			"category": "Electronics",
+			"price": 80000,
+			"image": "https://images.unsplash.com/photo-1505751171710-1f6d0ace5a85"
+		},
+		{
+			"id": "3",
+			"name": "Coffee Maker",
+			"category": "Home Appliances",
+			"price": 120000,
+			"image": "https://images.unsplash.com/photo-1637029436347-e33bf98a5412"
+		},
+		{
+			"id": "4",
+			"name": "Electric Toothbrush",
+			"category": "Personal Care",
+			"price": 99000,
+			"image": "https://images.unsplash.com/photo-1559592890-769772acf660"
+		},
+		{
+			"id": "5",
+			"name": "Yoga Mat",
+			"category": "Fitness",
+			"price": 4900,
+			"image": "https://images.unsplash.com/photo-1591291621164-2c6367723315"
+		},
+		{
+			"id": "6",
+			"name": "Smartwatch",
+			"category": "Electronics",
+			"price": 240000,
+			"image": "https://images.unsplash.com/photo-1617625802912-cde586faf331"
+		},
+		{
+			"id": "7",
+			"name": "Laptop",
+			"category": "Electronics",
+			"price": 310000,
+			"image": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853"
+		},
+		{
+			"id": "8",
+			"name": "Table Lamp",
+			"category": "Home & Office",
+			"price": 50000,
+			"image": "https://images.unsplash.com/photo-1517991104123-1d56a6e81ed9"
+		},
+		{
+			"id": "9",
+			"name": "Running Shoes",
+			"category": "Footwear",
+			"price": 20000,
+			"image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff"
+		},
+		{
+			"id": "10",
+			"name": "Backpack",
+			"category": "Accessories",
+			"price": 12000,
+			"image": "https://images.unsplash.com/photo-1577733966973-d680bffd2e80"
+		}
+	],
+	"cart": [
+		{
+			"id": "70bca11d-9d3e-456b-ab38-983906cf4b49",
+			"productId": "1",
+			"quantity": 1
+		}
+	],
+	"favorite": [
+		{
+			"id": "82feb686-3221-4671-a121-c93a1a33de4f",
+			"productId": "1",
+			"position": 0
+		}
+	]
+}

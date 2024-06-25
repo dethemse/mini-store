@@ -4,6 +4,7 @@
 	"private": true,
 	"scripts": {
 		"dev": "next dev",
+		"server:dev": "json-server --watch ./src/mock/db.json -p 3005",
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint --fix",
@@ -15,6 +16,7 @@
 	},
 	"dependencies": {
 		"@t3-oss/env-nextjs": "^0.10.1",
+		"axios": "^1.7.2",
 		"next": "14.2.3",
 		"react": "^18",
 		"react-dom": "^18",
@@ -31,6 +33,7 @@
 		"eslint-config-next": "14.2.3",
 		"eslint-config-prettier": "^9.1.0",
 		"husky": "^9.0.11",
+		"json-server": "1.0.0-beta.1",
 		"postcss": "^8",
 		"prettier": "^3.2.5",
 		"prettier-plugin-tailwindcss": "^0.5.14",
