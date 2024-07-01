@@ -9,17 +9,21 @@ import {
 	CardTitle,
 	CardPreview,
 } from '@/ui/components/molecules/Card';
+import { cn } from '@/utils/cn';
 import { Product } from '@/types/models/Product';
 import { Button } from '../../atoms/Button';
 
 type Props = {
 	product: Product;
+	orientation?: 'vertical' | 'horizontal';
 };
 
-export const ProductCard = ({ product }: Props) => {
+export const ProductCard = ({ product, orientation = 'vertical' }: Props) => {
+	const isHorizontal = orientation === 'horizontal';
+
 	return (
-		<Card>
-			<CardPreview>
+		<Card className={cn(isHorizontal && 'flex-row')}>
+			<CardPreview className={cn(isHorizontal && 'w-32')}>
 				<Image src={product.image} alt={product.name} fill sizes="(max-width: 768px) 100vw" />
 			</CardPreview>
 			<CardHeader>
