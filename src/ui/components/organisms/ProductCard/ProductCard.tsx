@@ -11,8 +11,9 @@ import {
 } from '@/ui/components/molecules/Card';
 import { cn } from '@/utils/cn';
 import { Product } from '@/types/models/Product';
-import { Button } from '../../atoms/Button';
 import { formatCurrency } from '@/utils/formatCurrency';
+import { ButtonCartAdd } from '@/ui/components/organisms/ButtonCartAdd';
+import { ButtonFavoriteAdd } from '@/ui/components/organisms/ButtonFavoriteAdd';
 
 type Props = {
 	product: Product;
@@ -38,8 +39,8 @@ export const ProductCard = ({ product, orientation = 'vertical' }: Props) => {
 				<p className="text-xl">{formatCurrency(product.price / 100)}</p>
 			</CardContent>
 			<CardFooter className={cn('flex-col gap-y-1', isHorizontal && 'ml-auto p-2')}>
-				<Button className="w-full">Add to cart</Button>
-				<Button className="w-full">Add to favorite</Button>
+				<ButtonCartAdd productId={product.id} />
+				<ButtonFavoriteAdd productId={product.id} />
 			</CardFooter>
 		</Card>
 	);
