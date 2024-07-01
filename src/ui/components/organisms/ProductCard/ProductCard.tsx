@@ -27,19 +27,19 @@ export const ProductCard = ({ product, orientation = 'vertical' }: Props) => {
 			<CardPreview className={cn(isHorizontal && 'w-32')}>
 				<Image src={product.image} alt={product.name} fill sizes="(max-width: 768px) 100vw" />
 			</CardPreview>
-			<CardHeader>
+			<CardHeader className="justify-center">
 				<CardTitle>{product.name}</CardTitle>
 				<CardDescription>
 					<span className="font-bold">Category: </span>
 					{product.category}
 				</CardDescription>
 			</CardHeader>
-			<CardContent>
+			<CardContent className="justify-center">
 				<p className="text-xl">{formatCurrency(product.price / 100)}</p>
 			</CardContent>
-			<CardFooter>
-				<Button>Add to cart</Button>
-				<Button>Add to favorite</Button>
+			<CardFooter className={cn('flex-col gap-y-1', isHorizontal && 'ml-auto p-2')}>
+				<Button className="w-full">Add to cart</Button>
+				<Button className="w-full">Add to favorite</Button>
 			</CardFooter>
 		</Card>
 	);
