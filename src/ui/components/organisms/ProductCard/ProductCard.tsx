@@ -12,6 +12,7 @@ import {
 import { cn } from '@/utils/cn';
 import { Product } from '@/types/models/Product';
 import { Button } from '../../atoms/Button';
+import { formatCurrency } from '@/utils/formatCurrency';
 
 type Props = {
 	product: Product;
@@ -34,7 +35,7 @@ export const ProductCard = ({ product, orientation = 'vertical' }: Props) => {
 				</CardDescription>
 			</CardHeader>
 			<CardContent>
-				<p>{product.price}</p>
+				<p className="text-xl">{formatCurrency(product.price / 100)}</p>
 			</CardContent>
 			<CardFooter>
 				<Button>Add to cart</Button>
