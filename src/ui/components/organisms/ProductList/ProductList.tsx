@@ -1,8 +1,8 @@
 import { cva, type VariantProps } from 'class-variance-authority';
 
 import { Product } from '@/types/models/Product';
-import { ProductCard } from '@/ui/components/organisms/ProductCard';
-import { Heading } from '@/ui/components/atoms/Heading';
+import { ProductCard } from '@/components/organisms/ProductCard';
+import { Heading } from '@/components/atoms/Heading';
 
 const listWrapper = cva('gap-4', {
 	variants: {

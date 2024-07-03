@@ -9,9 +9,11 @@ import {
 } from '@/ui/components/molecules/Popover';
 import { ShoppingBasketIcon } from '@/ui/icons';
 import { ProductCart } from '@/ui/components/organisms/ProductCart';
+import { getCart } from '@/actions/cart';
 
-export const Header = () => {
-	const cartCounter = 0;
+export const Header = async () => {
+	const cartItems = await getCart();
+	const cartCounter = cartItems.length;
 
 	return (
 		<div className="bg-slate-600">
