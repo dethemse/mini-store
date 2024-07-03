@@ -13,7 +13,7 @@ import { getCart } from '@/actions/cart';
 
 export const Header = async () => {
 	const cartItems = await getCart();
-	const cartCounter = cartItems.length;
+	const cartCounter = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
 	return (
 		<div className="bg-slate-600">
