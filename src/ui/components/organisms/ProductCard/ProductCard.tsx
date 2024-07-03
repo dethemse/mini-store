@@ -35,13 +35,11 @@ export const ProductCard = ({ product, actions, children, orientation = 'vertica
 					{product.category}
 				</CardDescription>
 			</CardHeader>
-			<CardContent className={cn(isHorizontal && 'flex-row items-center gap-x-2')}>
+			<CardContent className={cn(isHorizontal && 'ml-auto flex-row items-center gap-x-2')}>
 				<p className="text-xl">{formatCurrency(product.price / 100)}</p>
 				{children}
 			</CardContent>
-			<CardFooter className={cn('flex-col gap-y-1', isHorizontal && 'ml-auto p-2')}>
-				{actions}
-			</CardFooter>
+			<CardFooter className={cn('flex-col gap-y-1', isHorizontal && 'p-2')}>{actions}</CardFooter>
 		</Card>
 	);
 };
