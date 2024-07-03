@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 
 import { LayoutProps } from '@/types/app';
 import { inter, oswald } from '@/ui/fonts';
+import { ToastProvider } from '@/providers/ToastProvider';
 import '@/styles/main.css';
 
 export const metadata: Metadata = {
@@ -13,7 +14,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps) {
 	return (
 		<html lang="en" className={`${oswald.variable} ${inter.variable}`}>
-			<body className="font-inter">{children}</body>
+			<body className="font-inter">
+				{children}
+
+				<ToastProvider />
+			</body>
 		</html>
 	);
 }
