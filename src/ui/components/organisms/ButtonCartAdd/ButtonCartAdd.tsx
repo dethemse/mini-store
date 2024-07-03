@@ -3,6 +3,7 @@
 import { Cart } from '@/types/models/Cart';
 import { Button } from '@/ui/components/atoms/Button';
 import { ShoppingCartIcon } from '@/ui/icons';
+import { addProductToCart } from '@/actions/cart';
 
 type Props = {
 	productId: Cart['productId'];
@@ -10,8 +11,7 @@ type Props = {
 
 export const ButtonCartAdd = ({ productId }: Props) => {
 	const handleAddProduct = async () => {
-		// TODO add product to cart
-		console.log('add to cart', { productId });
+		return addProductToCart({ productId });
 	};
 
 	return (

@@ -1,5 +1,6 @@
 'use client';
 
+import { removeProductFromCart } from '@/actions/cart';
 import { Button } from '@/components/atoms/Button';
 import { Cart } from '@/types/models/Cart';
 import { CloseIcon } from '@/ui/icons';
@@ -13,7 +14,7 @@ export const ButtonCartDelete = ({ productId }: Props) => {
 		<Button
 			variant="destructive"
 			className="h-6 w-6 p-0"
-			onClick={() => console.log('delete from cart', productId)}
+			onClick={() => removeProductFromCart(productId)}
 		>
 			<CloseIcon className="size-4" />
 		</Button>
