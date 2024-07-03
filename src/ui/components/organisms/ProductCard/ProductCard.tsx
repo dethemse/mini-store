@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { PropsWithChildren, ReactNode } from 'react';
 
 import {
 	Card,
@@ -12,15 +13,14 @@ import {
 import { cn } from '@/utils/cn';
 import { Product } from '@/types/models/Product';
 import { formatCurrency } from '@/utils/formatCurrency';
-import { ButtonCartAdd } from '@/ui/components/organisms/ButtonCartAdd';
-import { ButtonFavoriteAdd } from '@/ui/components/organisms/ButtonFavoriteAdd';
 
-type Props = {
+type Props = PropsWithChildren<{
 	product: Product;
+	actions: ReactNode[];
 	orientation?: 'vertical' | 'horizontal';
-};
+}>;
 
-export const ProductCard = ({ product, orientation = 'vertical' }: Props) => {
+export const ProductCard = ({ product, actions, children, orientation = 'vertical' }: Props) => {
 	const isHorizontal = orientation === 'horizontal';
 
 	return (
@@ -35,12 +35,12 @@ export const ProductCard = ({ product, orientation = 'vertical' }: Props) => {
 					{product.category}
 				</CardDescription>
 			</CardHeader>
-			<CardContent className="justify-center">
+			<CardContent className={cn(isHorizontal && 'flex-row items-center gap-x-2')}>
 				<p className="text-xl">{formatCurrency(product.price / 100)}</p>
+				{children}
 			</CardContent>
 			<CardFooter className={cn('flex-col gap-y-1', isHorizontal && 'ml-auto p-2')}>
-				<ButtonCartAdd productId={product.id} />
-				<ButtonFavoriteAdd productId={product.id} />
+				{actions}
 			</CardFooter>
 		</Card>
 	);

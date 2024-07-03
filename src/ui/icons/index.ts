@@ -1,1 +1,1 @@
-export { ShoppingBasketIcon, ShoppingCartIcon, StarIcon } from 'lucide-react';
+export { ShoppingBasketIcon, ShoppingCartIcon, StarIcon, XIcon as CloseIcon } from 'lucide-react';

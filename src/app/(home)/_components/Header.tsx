@@ -27,7 +27,7 @@ export const Header = async () => {
 						<ShoppingBasketIcon className="size-6" />
 						<span>({cartCounter})</span>
 					</PopoverTrigger>
-					<PopoverContent align="end" sideOffset={10}>
+					<PopoverContent align="end" sideOffset={10} className="w-max">
 						{cartCounter > 0 ? <ProductCart /> : <p className="text-center">Empty</p>}
 
 						<PopoverArrow className="fill-white" />
