@@ -35,7 +35,11 @@ export const ProductList = ({ products, title, orientation = 'vertical' }: Props
 						key={product.id}
 						orientation={orientation!}
 						actions={[
-							<ButtonCartAdd productId={product.id} key={`cart-${product.id}`} />,
+							<ButtonCartAdd
+								productId={product.id}
+								key={`cart-${product.id}`}
+								productName={product.name}
+							/>,
 							<ButtonFavoriteAdd productId={product.id} key={`favorite-${product.id}`} />,
 						]}
 					/>

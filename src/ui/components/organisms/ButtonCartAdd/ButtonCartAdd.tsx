@@ -4,14 +4,24 @@ import { Cart } from '@/types/models/Cart';
 import { Button } from '@/ui/components/atoms/Button';
 import { ShoppingCartIcon } from '@/ui/icons';
 import { addProductToCart } from '@/actions/cart';
+import { useToast } from '@/components/molecules/Toast';
+import { Product } from '@/types/models/Product';
 
 type Props = {
 	productId: Cart['productId'];
+	productName: Product['name'];
 };
 
-export const ButtonCartAdd = ({ productId }: Props) => {
+export const ButtonCartAdd = ({ productId, productName }: Props) => {
+	const { toast } = useToast();
+
 	const handleAddProduct = async () => {
-		return addProductToCart({ productId });
+		addProductToCart({ productId }).then(() => {
+			toast({
+				title: `${productName} is added successfully!`,
+				variant: 'success',
+			});
+		});
 	};
 
 	return (
