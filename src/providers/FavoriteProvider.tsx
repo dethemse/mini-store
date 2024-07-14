@@ -7,8 +7,8 @@ type State = {
 	favorite: Favorite[];
 
 	sortFavorite: () => void;
-	addFavorite: () => void;
-	deleteFavorite: () => void;
+	addFavorite: (favoriteItem: Favorite) => void;
+	deleteFavorite: (productId: Favorite['productId']) => void;
 };
 
 const FavoriteContext = createContext<State | null>(null);
@@ -22,9 +22,13 @@ export const FavoriteProvider = ({ children, initialFavorite }: Props) => {
 
 	const sortFavorite = () => {};
 
-	const addFavorite = () => {};
+	const addFavorite = (favoriteItem: Favorite) => {
+		setFavorite((prev) => [...prev, favoriteItem]);
+	};
 
-	const deleteFavorite = () => {};
+	const deleteFavorite = (productId: Favorite['productId']) => {
+		setFavorite((prev) => prev.filter((item) => item.productId !== productId));
+	};
 
 	return (
 		<FavoriteContext.Provider

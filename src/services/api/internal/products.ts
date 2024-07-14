@@ -8,3 +8,9 @@ export async function findAll(_criteria?: unknown) {
 
 	return data;
 }
+
+export async function findById(productId: Product['id']) {
+	const { data } = await internalClient.get<Product>(`${url}/${productId}`);
+
+	return data;
+}

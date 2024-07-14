@@ -1,5 +1,7 @@
 'use server';
 
+import { revalidateTag } from 'next/cache';
+
 import * as internalApi from '@/services/api/internal';
 import { cache } from '@/utils/cache';
 
@@ -16,3 +18,25 @@ export const getFavorite = cache(
 		tags: [QUERY_TAG],
 	},
 );
+
+export const addFavorite = async (...args: Parameters<typeof internalApi.favorite.create>) => {
+	const [input] = args;
+
+	const createdFavorite = await internalApi.favorite.create(input);
+
+	revalidateTag(QUERY_TAG);
+
+	return createdFavorite;
+};
+
+export const deleteFavorite = async (
+	...args: Parameters<typeof internalApi.favorite.deleteItem>
+) => {
+	const [productId] = args;
+
+	await internalApi.favorite.deleteItem(productId);
+
+	revalidateTag(QUERY_TAG);
+};
+
+export const sortFavorite = async () => {};
