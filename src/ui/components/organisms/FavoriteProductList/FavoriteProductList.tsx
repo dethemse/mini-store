@@ -1,16 +1,14 @@
 'use client';
 
 import { Heading } from '@/components/atoms/Heading';
-import { Favorite } from '@/types/models/Favorite';
 import { ProductCard } from '@/components/organisms/ProductCard';
 import { ButtonCartAdd } from '@/components/organisms/ButtonCartAdd';
 import { ButtonFavoriteAdd } from '@/components/organisms/ButtonFavoriteAdd';
+import { useFavorite } from '@/providers/FavoriteProvider';
 
-type Props = {
-	favorite: Favorite[];
-};
+export const FavoriteProductList = () => {
+	const { favorite } = useFavorite();
 
-export const FavoriteProductList = ({ favorite }: Props) => {
 	return (
 		<div className="space-y-4">
 			<Heading>Favorite Products</Heading>
