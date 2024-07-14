@@ -26,5 +26,9 @@ export const buildQueryString = <TEntity extends Record<string, unknown>>(
 		query._embed = criteria.relations;
 	}
 
+	if (criteria.sortBy) {
+		query._sort = criteria.sortBy;
+	}
+
 	return queryString.stringify(query);
 };

@@ -8,7 +8,7 @@ const QUERY_TAG = 'favoriteTag';
 
 export const getFavorite = cache(
 	async () => {
-		return internalApi.favorite.findAll({ relations: 'product' });
+		return internalApi.favorite.findAll({ relations: 'product', sortBy: 'position' });
 	},
 	[QUERY_KEY],
 	{

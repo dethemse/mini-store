@@ -5,4 +5,5 @@ export type Criteria<
 	relations?: {
 		[K in TKey]: K extends `${infer TField}Id` ? TField : never;
 	}[TKey];
+	sortBy?: Extract<TKey, string> | `-${Extract<TKey, string>}`;
 };
