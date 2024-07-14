@@ -47,7 +47,22 @@ export async function create(input: Pick<Favorite, 'productId'>): Promise<Favori
 	return { ...data, product };
 }
 
-export async function update() {}
+export async function updateAll(input: Favorite[]) {
+	const favorite = await findAll();
+	const favoriteIds = new Set(favorite.map((item) => item.id));
+
+	const updatedItems: Favorite[] = [];
+
+	// validation
+	const filteredInput = input.filter((item) => favoriteIds.has(item.id));
+
+	for (const item of filteredInput) {
+		const { data } = await internalClient.put<Favorite>(`${url}/${item.id}`, item);
+		updatedItems.push(data);
+	}
+
+	return updatedItems;
+}
 
 export async function deleteItem(productId: Favorite['productId']) {
 	const favorite = await findByProductId(productId);

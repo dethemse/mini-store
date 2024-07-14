@@ -39,4 +39,12 @@ export const deleteFavorite = async (
 	revalidateTag(QUERY_TAG);
 };
 
-export const sortFavorite = async () => {};
+export const sortFavorite = async (...args: Parameters<typeof internalApi.favorite.updateAll>) => {
+	const [input] = args;
+
+	const sortedFavorite = await internalApi.favorite.updateAll(input);
+
+	revalidateTag(QUERY_TAG);
+
+	return sortedFavorite;
+};

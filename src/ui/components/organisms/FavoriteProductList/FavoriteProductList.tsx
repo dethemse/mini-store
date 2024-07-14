@@ -1,6 +1,5 @@
 'use client';
 
-import { GripVerticalIcon } from '@/ui/icons';
 import { Heading } from '@/components/atoms/Heading';
 import { ProductCard } from '@/components/organisms/ProductCard';
 import { ButtonCartAdd } from '@/components/organisms/ButtonCartAdd';
@@ -8,13 +7,21 @@ import { ButtonFavoriteAdd } from '@/components/organisms/ButtonFavoriteAdd';
 import { useFavorite } from '@/providers/FavoriteProvider';
 import { SortableItem } from '@/providers/dnd/SortableItem';
 import { DndProvider } from '@/providers/dnd/DndProvider';
+import { sortFavorite as sortFavoriteAction } from '@/actions/favorite';
 import { Favorite } from '@/types/models/Favorite';
+import { GripVerticalIcon } from '@/ui/icons';
 
 export const FavoriteProductList = () => {
-	const { favorite } = useFavorite();
+	const { favorite, sortFavorite } = useFavorite();
 
 	const handleSortingProducts = async (updatedProducts: Favorite[]) => {
-		console.log('dnd', updatedProducts);
+		const sortedProducts = updatedProducts.map((item, index) => ({ ...item, position: index }));
+
+		// Update client
+		sortFavorite(sortedProducts);
+
+		// Update API
+		await sortFavoriteAction(sortedProducts.map(({ product, ...item }) => item));
 	};
 
 	return (

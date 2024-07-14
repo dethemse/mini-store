@@ -6,7 +6,7 @@ import { createContext, PropsWithChildren, use, useState } from 'react';
 type State = {
 	favorite: Favorite[];
 
-	sortFavorite: () => void;
+	sortFavorite: (sorted: Favorite[]) => void;
 	addFavorite: (favoriteItem: Favorite) => void;
 	deleteFavorite: (productId: Favorite['productId']) => void;
 };
@@ -20,7 +20,9 @@ type Props = PropsWithChildren<{
 export const FavoriteProvider = ({ children, initialFavorite }: Props) => {
 	const [favorite, setFavorite] = useState(initialFavorite);
 
-	const sortFavorite = () => {};
+	const sortFavorite = (sorted: Favorite[]) => {
+		setFavorite(sorted);
+	};
 
 	const addFavorite = (favoriteItem: Favorite) => {
 		setFavorite((prev) => [...prev, favoriteItem]);
